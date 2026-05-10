@@ -12,7 +12,7 @@ The course is designed for learners with little or no programming experience. Ex
 
 The repository is being organized around full-day workbooks:
 
-- `notebooks/01_day1_titanic_data_analysis.ipynb`
+- [![Open Day 1 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_day1_titanic_data_analysis.ipynb) `notebooks/day_1/01_day1_titanic_data_analysis.ipynb`
 - `notebooks/02_day2_penguins_visualization_storytelling.ipynb`
 - optional `notebooks/03_bonus_gapminder_visual_analysis.ipynb`
 
