@@ -1,96 +1,34 @@
 # AGENTS.md
 
-# Python Data Analysis and Visualization Course
+## Mission
 
-This repository contains teaching materials for a short intensive course on:
+Create beginner-friendly Google Colab workbooks for a two-day, 10 academic-hour course on Python data analysis and visualization.
 
-* Python for data analysis
-* Pandas
-* Data cleaning
-* Data visualization with Matplotlib and Seaborn
-* Basic data storytelling
-* Jupyter Notebook / Google Colab workflows
+The course is for adult professionals with little or no programming experience. Many learners may have Excel experience. The materials should feel like practical analytical workflows, not computer science exercises.
 
----
+## Current Deliverables
 
-# Audience
+Build toward these notebooks:
 
-Primary audience:
+- `notebooks/01_day1_titanic_data_analysis.ipynb`
+- `notebooks/02_day2_penguins_visualization_storytelling.ipynb`
+- Optional: `notebooks/03_bonus_gapminder_visual_analysis.ipynb`
 
-* Adult professionals
-* Little or no programming experience
-* Possible Excel experience
-* Mixed technical backgrounds
+Each main day notebook must be a self-contained full-day workbook with 5 subchapters. The bonus notebook may be shorter, but should still be runnable and self-contained.
 
-The notebooks should assume:
+## Datasets
 
-* beginner-level Python knowledge
-* possible anxiety about programming
-* preference for practical examples over theory
+Use the datasets already stored in `data/`:
 
-The notebooks should NOT resemble traditional computer science programming exercises.
+- `data/titanic.csv` for Day 1
+- `data/penguins.csv` for Day 2
+- `data/gapminder.csv` for the optional bonus notebook
 
-The notebooks SHOULD resemble:
+Notebook data-loading cells must work in Google Colab as-is. Prefer a simple loader that tries the local repository path first and falls back to a raw GitHub URL or another stable public URL documented in the notebook.
 
-* guided analytical workflows
-* reproducible Excel-like analysis pipelines
-* practical business/public-sector data analysis examples
+## Core Libraries
 
----
-
-# Primary Teaching Philosophy
-
-Participants are NOT becoming software developers.
-
-Participants ARE learning:
-
-* reproducible data analysis
-* practical data cleaning
-* basic analytical thinking
-* visual communication of data
-* replacing repetitive Excel workflows
-
-Whenever possible, connect concepts to Excel equivalents.
-
-Examples:
-
-| Excel Concept   | Pandas Equivalent                  |
-| --------------- | ---------------------------------- |
-| Worksheet/Table | DataFrame                          |
-| Column          | Series                             |
-| Filter          | Boolean indexing                   |
-| Pivot Table     | groupby() / pivot_table()          |
-| Formula         | Python expression                  |
-| Chart           | Matplotlib / Seaborn visualization |
-
----
-
-# Technical Environment
-
-Primary target environment:
-
-* Google Colab
-
-Secondary compatible environments:
-
-* Jupyter Notebook
-* VS Code Jupyter extension
-* JupyterLab
-
-All notebooks must:
-
-* run successfully using "Run All"
-* avoid complex setup
-* avoid unnecessary package installation
-* contain explanatory Markdown between code cells
-* contain visible outputs
-* support beginner readability
-
----
-
-# Core Libraries
-
-Primary libraries:
+Use these as the standard course libraries:
 
 ```python
 import pandas as pd
@@ -98,338 +36,89 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-Optional bonus sections may additionally use:
+Optional enrichment may use:
 
 ```python
 import numpy as np
 import plotly.express as px
 ```
 
-Plotly and NumPy are optional enrichment only and should not be core dependencies.
+Do not make optional enrichment a requirement for the main workflow.
 
----
+## Teaching Style
 
-# Repository Structure
+Prioritize:
 
-Expected repository structure:
-
-```text
-/
-├── AGENTS.md
-├── README.md
-├── requirements.txt
-├── data/
-├── notebooks/
-├── images/
-├── exports/
-└── docs/
-    ├── PEDAGOGY.md
-    ├── COURSE_STRUCTURE.md
-    ├── NOTEBOOK_TEMPLATE.md
-    └── DATASETS.md
-```
-
----
-
-# Notebook Naming Convention
-
-```text
-01_intro_to_jupyter_and_python.ipynb
-02_loading_and_understanding_data.ipynb
-03_filtering_and_sorting.ipynb
-04_data_cleaning.ipynb
-05_statistics_and_grouping.ipynb
-06_intro_to_visualization.ipynb
-07_matplotlib_basics.ipynb
-08_seaborn_visualization.ipynb
-09_data_storytelling.ipynb
-10_mini_project.ipynb
-```
-
----
-
-# Required Notebook Structure
-
-Every notebook should consistently use the following structure:
-
-```markdown
-# Lesson Title
-
-## Learning Outcomes
-
-## Introduction
-
-## Instructor Demonstration
-
-## Guided Practice
-
-## Check Your Understanding
-
-## Independent Mini Task
-
-## Common Mistakes
-
-## Reflection
-
-## Optional Bonus Tasks
-```
-
-Consistency is important for beginner adult learners.
-
----
-
-# Pedagogical Requirements
-
-Every notebook MUST contain:
-
-* explanatory Markdown
-* runnable examples
-* visible outputs
-* assessment questions
-* independent mini tasks
-* reflection questions
-* common mistakes sections
-
-The notebooks should:
-
-* avoid unexplained syntax
-* avoid large unexplained code blocks
-* avoid excessive abstraction
-* prioritize confidence-building
-* prioritize practical usefulness
-
----
-
-# Assessment Design
-
-## Check Your Understanding
-
-These sections should:
-
-* be low-stakes
-* focus on conceptual understanding
-* include code-reading exercises
-* include prediction questions
+- short, readable code cells
+- explanatory Markdown between code cells
+- visible outputs after most code cells
+- Excel comparisons where useful
+- practical interpretation of results
+- confidence-building for beginners
 
 Avoid:
 
-* formal exams
-* memorization-heavy questions
-* long coding tasks
+- object-oriented programming
+- decorators
+- APIs
+- machine learning
+- SQL
+- complex package management
+- advanced statistics
+- software engineering topics
 
-Example:
+Participants are learning reproducible analysis, not software development.
 
-```python
-x = 10
-y = 5
-x + y * 2
-```
+## Required Workbook Pattern
 
-Question:
+Each main workbook should include:
 
-"Predict the output before running the code."
+- clear learning outcomes
+- 5 named subchapters
+- instructor demonstration
+- guided practice
+- check-your-understanding questions
+- independent mini tasks
+- common mistakes
+- reflection prompts
+- a short end-of-day synthesis or mini report
 
----
+Each subchapter should normally follow this rhythm:
 
-# Independent Mini Tasks
+1. Explain the goal in plain language.
+2. Demonstrate the operation.
+3. Let learners modify or repeat the pattern.
+4. Ask a low-stakes check question.
+5. End with a small visible result or interpretation.
 
-Mini tasks should:
+## Colab Requirements
 
-* be practical
-* be short
-* reinforce recently demonstrated concepts
-* produce visible results
-* be achievable within 5–8 minutes
+All notebooks must:
 
-Mini tasks should NOT:
+- run top-to-bottom with "Run all"
+- avoid local-only paths
+- avoid unnecessary installation cells
+- use stable data-loading logic
+- contain visible tables, summaries, or charts
+- include enough Markdown for learners who revisit the notebook later
 
-* introduce major new concepts
-* require advanced debugging
-* overwhelm beginners
+## Documentation
 
----
+Keep this file concise. Put detailed guidance in:
 
-# Reflection Sections
+- `docs/PEDAGOGY.md`
+- `docs/COURSE_STRUCTURE.md`
+- `docs/NOTEBOOK_TEMPLATE.md`
+- `docs/DATASETS.md`
 
-Reflection questions should encourage:
+If guidance conflicts, follow this priority:
 
-* conceptual understanding
-* workplace application
-* comparison with Excel workflows
-* self-evaluation
+1. `AGENTS.md`
+2. `docs/COURSE_STRUCTURE.md`
+3. `docs/NOTEBOOK_TEMPLATE.md`
+4. `docs/PEDAGOGY.md`
+5. dataset-specific notes
 
-Examples:
+## End Goal
 
-* Which concept felt most intuitive today?
-* Which concept still feels confusing?
-* Where could this workflow help in your work?
-
----
-
-# Common Mistakes Sections
-
-Every notebook should contain:
-
-```markdown
-## Common Mistakes
-```
-
-Examples:
-
-* Forgetting quotation marks
-* Using = instead of ==
-* Misspelling column names
-* Running cells out of order
-* Forgetting parentheses in filtering conditions
-
-These sections are pedagogically important and help normalize beginner errors.
-
----
-
-# Dataset Requirements
-
-Datasets should be:
-
-* realistic
-* workplace-relevant
-* medium-sized
-* easy to understand
-* somewhat imperfect
-
-Recommended dataset characteristics:
-
-* 200–2000 rows
-* 6–12 columns
-* at least 2 numeric columns
-* at least 2 categorical columns
-* at least 1 date column
-* several missing values
-* minor inconsistencies for cleaning exercises
-
-Preferred dataset themes:
-
-* sales
-* surveys
-* employees
-* public sector data
-* libraries
-* budgets
-* customers
-* education
-* transport
-
-Avoid:
-
-* highly scientific datasets
-* cryptic column names
-* excessively large datasets
-* advanced statistical datasets
-
----
-
-# Visualization Philosophy
-
-The visualization section should emphasize:
-
-* readability
-* interpretation
-* communication
-* avoiding misleading charts
-* selecting appropriate chart types
-
-Core chart types:
-
-* line chart
-* bar chart
-* scatter plot
-* histogram
-* box plot
-
-The notebooks should explain:
-
-* WHEN to use each chart
-* WHY to use each chart
-* HOW to interpret each chart
-
-All charts should include:
-
-* titles
-* axis labels
-* legends where appropriate
-* readable formatting
-
----
-
-# Data Storytelling
-
-Participants should learn that:
-
-* charts alone are not analysis
-* interpretation matters
-* visualizations should communicate insight
-
-Weak title example:
-
-```markdown
-Sales by Region
-```
-
-Better title example:
-
-```markdown
-Riga Region Generated the Highest Total Sales
-```
-
-Encourage:
-
-* observation
-* interpretation
-* explanation
-* recommendation
-
----
-
-# Scope Control
-
-DO NOT include advanced software engineering topics in core materials.
-
-Avoid:
-
-* object-oriented programming
-* classes
-* decorators
-* APIs
-* machine learning
-* deep statistics
-* dashboards
-* SQL integration
-* complex package management
-* virtual environment complexity
-
-The goal is:
-
-A complete beginner should be able to:
-
-1. Load and inspect tabular datasets.
-2. Perform basic cleaning and transformation.
-3. Compute descriptive statistics.
-4. Group and summarize data.
-5. Create readable visualizations.
-6. Interpret charts and findings.
-7. Produce a small reproducible analytical notebook report.
-
-within 10 academic hours.
-
----
-
-# Final Course Goal
-
-The final mini-project notebook should combine:
-
-* code
-* tables
-* visualizations
-* Markdown explanations
-* short analytical conclusions
-
-into a single reproducible workflow suitable for beginner professional learners.
+By the end of the course, learners should be able to load tabular data, inspect it, clean basic issues, filter and summarize rows, create readable charts, and write short analytical conclusions in a reproducible notebook.

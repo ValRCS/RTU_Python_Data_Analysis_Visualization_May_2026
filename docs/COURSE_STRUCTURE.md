@@ -1,548 +1,356 @@
-# COURSE_STRUCTURE.md
+# Course Structure
 
-# Course Structure — Python Data Analysis and Visualization
+## Course Format
 
-This document describes the overall structure, sequencing, and instructional progression of the Python Data Analysis and Visualization course materials.
+This course is a two-day, 10 academic-hour introduction to Python data analysis and visualization.
 
-The Python-specific portion of the course consists of:
+The course deliverables are full-day Google Colab workbooks:
 
-* 10 academic hours
-* approximately 40–45 minutes each
-* delivered across two consecutive days
+- `notebooks/01_day1_titanic_data_analysis.ipynb`
+- `notebooks/02_day2_penguins_visualization_storytelling.ipynb`
+- Optional: `notebooks/03_bonus_gapminder_visual_analysis.ipynb`
 
-The course is intended for:
+Each main workbook contains 5 subchapters. Each subchapter is designed for roughly one academic hour and should include instructor demonstration, guided practice, a short understanding check, a mini task, and interpretation.
 
-* adult professionals
-* beginner programmers
-* participants transitioning from Excel workflows
-* learners focused on practical analytical skills
+## Audience
 
----
+The primary audience is adult professionals who are new to programming or have limited programming confidence. Many learners may know Excel. The course should use that prior experience as an anchor.
 
-# Overall Course Objectives
+The course is not a software development course. It is a practical course in reproducible data analysis.
 
-By the end of the course, participants should be able to:
+## Overall Learning Progression
 
-1. Work in Jupyter Notebook or Google Colab environments.
-2. Load and inspect tabular datasets.
-3. Perform basic data cleaning and transformation.
-4. Calculate descriptive statistics.
-5. Filter, sort, group, and summarize data.
-6. Create readable visualizations.
-7. Interpret analytical results.
-8. Produce a small reproducible notebook-based analytical report.
-
----
-
-# Overall Pedagogical Progression
-
-The course progression intentionally follows a practical analytical workflow:
+The course follows a practical analytical workflow:
 
 ```text
-Environment Setup
-    ↓
-Loading Data
-    ↓
-Understanding Data
-    ↓
-Cleaning Data
-    ↓
-Transforming Data
-    ↓
-Summarizing Data
-    ↓
-Visualizing Data
-    ↓
-Interpreting Data
-    ↓
-Communicating Findings
+Open a notebook
+Load data
+Inspect rows and columns
+Clean basic issues
+Filter and summarize
+Create charts
+Interpret findings
+Write short conclusions
 ```
 
-This progression mirrors real-world analytical workflows.
+Day 1 emphasizes tabular analysis with Pandas. Day 2 emphasizes visualization, interpretation, and storytelling.
 
----
+## Day 1 Workbook: Titanic Data Analysis
 
-# Day 1 Overview
+Dataset: `data/titanic.csv`
 
-Day 1 focuses primarily on:
+Main purpose: help learners become comfortable with notebooks, Pandas, inspection, filtering, missing values, grouping, and short analytical conclusions.
 
-* Python basics
-* Jupyter/Colab workflow
-* Pandas fundamentals
-* Data cleaning
-* Data summarization
+### Day 1 Subchapter 1: Colab, Notebooks, and Loading Data
 
-The emphasis is:
+Learners should be able to:
 
-* comfort with notebooks
-* understanding DataFrames
-* confidence with basic analytical operations
+- run Markdown and code cells
+- understand that a notebook is a reproducible analysis document
+- import Pandas
+- load the Titanic CSV
+- view the first rows
 
----
+Core operations:
 
-# Day 2 Overview
+```python
+import pandas as pd
+df = pd.read_csv(...)
+df.head()
+```
 
-Day 2 focuses primarily on:
+Excel connection: a DataFrame is similar to a worksheet or table.
 
-* data visualization
-* interpretation
-* communication
-* data storytelling
-* integrating workflows into a mini-project
+Visible outputs: first rows, row and column count.
 
-The emphasis is:
+### Day 1 Subchapter 2: Understanding Rows, Columns, and Data Types
 
-* visual communication
-* analytical reasoning
-* reproducibility
-* practical reporting
+Learners should be able to:
 
----
+- inspect column names
+- identify row and column counts
+- use `info()` and `describe()`
+- distinguish numeric and categorical columns
+- notice missing values
 
-# Academic Hour Structure
+Core operations:
 
-Each academic hour should approximately follow:
+```python
+df.shape
+df.columns
+df.info()
+df.describe()
+df.isna().sum()
+```
 
-| Segment                  | Approximate Time |
-| ------------------------ | ---------------- |
-| Introduction & recap     | 5 min            |
-| Instructor demonstration | 10–15 min        |
-| Guided practice          | 10–15 min        |
-| Assessment questions     | 3–5 min          |
-| Independent mini task    | 5–8 min          |
-| Reflection               | 2–4 min          |
+Excel connection: checking column types and blanks before analysis.
 
-This structure should remain consistent across notebooks.
+Visible outputs: column list, data type summary, missing value counts.
 
----
+### Day 1 Subchapter 3: Selecting, Filtering, and Sorting
 
-# Notebook Sequence
+Learners should be able to:
 
----
+- select one or more columns
+- filter rows using simple conditions
+- combine conditions carefully
+- sort rows
+- count categories
 
-# Notebook 01
+Core operations:
 
-# Introduction to Jupyter and Python
+```python
+df["Age"]
+df[["Name", "Age", "Sex"]]
+df[df["Age"] >= 18]
+df.sort_values("Fare", ascending=False)
+df["Pclass"].value_counts()
+```
 
-## Main Goals
+Excel connection: filtering and sorting table rows.
 
-Participants should learn:
+Visible outputs: filtered tables, sorted tables, category counts.
 
-* how notebooks work
-* how to run code cells
-* how to edit cells
-* how variables work
-* how basic Python expressions work
+### Day 1 Subchapter 4: Cleaning Missing and Inconvenient Data
 
-## Topics
+Learners should be able to:
 
-* Jupyter Notebook / Google Colab interface
-* code cells vs Markdown cells
-* running cells
-* variables
-* strings
-* numbers
-* simple arithmetic
-* printing output
+- identify missing values
+- decide whether to fill, ignore, or exclude missing values
+- create simple cleaned columns when useful
+- understand that cleaning choices affect analysis
 
-## Typical Outputs
+Core operations:
 
-* simple calculations
-* variable assignments
-* explanatory Markdown text
+```python
+df.isna().sum()
+df["Age"].fillna(df["Age"].median())
+df.dropna(subset=["Embarked"])
+```
 
-## Learning Emphasis
+Recommended cleaning focus:
 
-Reduce fear of programming and establish confidence early.
+- `Age` has many missing values.
+- `Cabin` is mostly missing and should not be overused.
+- `Embarked` has a small number of missing values.
 
----
+Excel connection: replacing blanks, filtering blanks, and documenting decisions.
 
-# Notebook 02
+Visible outputs: before/after missing value summaries.
 
-# Loading and Understanding Data
+### Day 1 Subchapter 5: Grouping, Summarizing, and Mini Report
 
-## Main Goals
+Learners should be able to:
 
-Participants should understand:
+- calculate basic descriptive statistics
+- group by category
+- compare survival rates by group
+- write short analytical conclusions
 
-* what a DataFrame is
-* how to load CSV/Excel data
-* how to inspect datasets
+Core operations:
 
-## Topics
+```python
+df["Survived"].mean()
+df.groupby("Sex")["Survived"].mean()
+df.groupby("Pclass")["Fare"].mean()
+pd.pivot_table(...)
+```
 
-* importing Pandas
-* read_csv()
-* read_excel()
-* head()
-* info()
-* describe()
-* rows and columns
-* data types
+Excel connection: Pivot Tables and summarized reports.
 
-## Typical Outputs
+Visible outputs: grouped summaries and a short final Markdown interpretation.
 
-* loaded datasets
-* dataset summaries
-* identified column types
+Expected end-of-day output: a small reproducible Titanic analysis containing code, tables, and 3 to 5 short conclusions.
 
-## Learning Emphasis
+## Day 2 Workbook: Penguins Visualization and Storytelling
 
-Connect DataFrames to Excel tables.
+Dataset: `data/penguins.csv`
 
----
+Main purpose: help learners create readable visualizations, choose appropriate chart types, compare groups, interpret patterns, and turn charts into short analytical stories.
 
-# Notebook 03
+### Day 2 Subchapter 1: Loading and Re-Inspecting a New Dataset
 
-# Filtering and Sorting Data
+Learners should be able to:
 
-## Main Goals
+- load a second dataset independently
+- inspect rows, columns, and missing values
+- reuse Day 1 inspection patterns
+- understand what each measurement means
 
-Participants should learn:
+Core operations:
 
-* selecting columns
-* filtering rows
-* combining conditions
-* sorting values
-* counting categories
+```python
+penguins.head()
+penguins.info()
+penguins.describe()
+penguins.isna().sum()
+```
 
-## Topics
+Excel connection: opening a new worksheet and checking fields before charting.
 
-* boolean indexing
-* filtering conditions
-* sort_values()
-* value_counts()
+Visible outputs: first rows, data types, missing value counts.
 
-## Typical Outputs
+### Day 2 Subchapter 2: Distributions and Category Counts
 
-* filtered tables
-* sorted summaries
-* category counts
+Learners should be able to:
 
-## Learning Emphasis
+- count categories
+- create bar charts for categories
+- create histograms for numeric distributions
+- explain what a distribution shows
 
-Relate filtering directly to Excel filtering workflows.
+Core chart types:
 
----
+- bar chart
+- histogram
 
-# Notebook 04
+Recommended variables:
 
-# Data Cleaning and Missing Values
+- `species`
+- `island`
+- `body_mass_g`
+- `flipper_length_mm`
 
-## Main Goals
+Visible outputs: category count table, bar chart, histogram.
 
-Participants should understand:
+### Day 2 Subchapter 3: Comparing Groups
 
-* real-world data is messy
-* missing values require handling
-* text inconsistencies matter
-* data types matter
+Learners should be able to:
 
-## Topics
+- compare measurements by species
+- use grouped summaries
+- create box plots
+- identify spread, center, and outliers in plain language
 
-* isna()
-* dropna()
-* fillna()
-* duplicated()
-* string cleanup
-* type conversion
-* date conversion
+Core chart types:
 
-## Typical Outputs
+- box plot
+- grouped bar chart
 
-* cleaned datasets
-* corrected data types
-* normalized text columns
+Recommended variables:
 
-## Learning Emphasis
+- `species`
+- `body_mass_g`
+- `bill_length_mm`
+- `flipper_length_mm`
 
-Show that data cleaning is a major part of analytical work.
+Visible outputs: grouped summary table and comparison charts.
 
----
+### Day 2 Subchapter 4: Relationships Between Measurements
 
-# Notebook 05
+Learners should be able to:
 
-# Statistics and Grouping
+- create scatterplots
+- use color to show groups
+- describe relationships without overclaiming causality
+- connect chart patterns to interpretation
 
-## Main Goals
+Core chart type:
 
-Participants should learn:
+- scatter plot
 
-* descriptive statistics
-* grouped summaries
-* pivot-style analysis
+Recommended variables:
 
-## Topics
+- `bill_length_mm`
+- `bill_depth_mm`
+- `flipper_length_mm`
+- `body_mass_g`
+- `species`
 
-* mean()
-* median()
-* sum()
-* count()
-* groupby()
-* agg()
-* pivot_table()
+Visible outputs: scatterplots with readable titles and labels.
 
-## Typical Outputs
+### Day 2 Subchapter 5: Visual Storytelling Mini Project
 
-* grouped summaries
-* aggregated statistics
-* pivot-style tables
+Learners should be able to:
 
-## Learning Emphasis
+- choose useful charts
+- title charts with insights
+- write observations and interpretations
+- assemble a short reproducible visual report
 
-Connect grouped analysis to Excel pivot tables.
+Expected end-of-day output: a short Penguins visual story with 2 to 3 charts and 3 to 5 written findings.
 
----
+## Bonus Workbook: Gapminder Visual Analysis
 
-# Notebook 06
+Dataset: `data/gapminder.csv`
 
-# Introduction to Visualization
+This optional workbook is useful for faster groups or for extending Day 2. It should focus on time trends and public-data storytelling.
 
-## Main Goals
+Suggested subchapters:
 
-Participants should understand:
+1. Load and inspect Gapminder data.
+2. Filter by country, continent, and year.
+3. Create line charts for life expectancy over time.
+4. Compare continents using summaries and charts.
+5. Write a short public-data story with caveats.
 
-* why visualization matters
-* which chart types fit which analytical tasks
+Recommended chart types:
 
-## Topics
+- line chart
+- bar chart
+- scatter plot
 
-* line charts
-* bar charts
-* scatter plots
-* histograms
-* box plots
-* chart readability
-* chart selection
+Important caveat: this is a historical teaching excerpt ending in 2007, not a current source of socioeconomic indicators.
 
-## Typical Outputs
+## Standard Subchapter Rhythm
 
-* first simple charts
-* comparison of chart types
+Each subchapter should usually follow this pattern:
 
-## Learning Emphasis
+1. Short introduction: why this matters.
+2. Instructor demonstration: one main idea at a time.
+3. Guided practice: learners repeat or slightly modify the pattern.
+4. Check your understanding: prediction or interpretation question.
+5. Independent mini task: 5 to 8 minutes.
+6. Common mistake or troubleshooting note.
+7. Short reflection or interpretation.
 
-Visualization is communication, not decoration.
+This rhythm is more important than perfectly equal section lengths.
 
----
+## Assessment Approach
 
-# Notebook 07
+Assessment should be low-stakes and practical.
 
-# Matplotlib Basics
+Use:
 
-## Main Goals
-
-Participants should learn:
-
-* creating charts with Matplotlib
-* adding titles and labels
-* improving readability
-
-## Topics
-
-* plt.plot()
-* plt.bar()
-* plt.scatter()
-* titles
-* labels
-* legends
-* figure size
-* grids
-
-## Typical Outputs
-
-* formatted charts
-* readable visualizations
-
-## Learning Emphasis
-
-Readable formatting is part of analysis quality.
-
----
-
-# Notebook 08
-
-# Seaborn Visualization
-
-## Main Goals
-
-Participants should learn:
-
-* statistical visualizations
-* easier high-level plotting
-* identifying distributions and outliers
-
-## Topics
-
-* sns.barplot()
-* sns.histplot()
-* sns.boxplot()
-* sns.scatterplot()
-* hue=
-* themes
-
-## Typical Outputs
-
-* cleaner statistical charts
-* grouped visualizations
-
-## Learning Emphasis
-
-Visualizations reveal patterns not obvious in tables.
-
----
-
-# Notebook 09
-
-# Data Storytelling and Interpretation
-
-## Main Goals
-
-Participants should learn:
-
-* charts alone are not analysis
-* analytical communication matters
-* interpretation is essential
-
-## Topics
-
-* chart interpretation
-* identifying patterns
-* identifying outliers
-* writing analytical conclusions
-* communicating insights
-
-## Typical Outputs
-
-* short written interpretations
-* annotated charts
-* mini analytical narratives
-
-## Learning Emphasis
-
-Analysis requires interpretation and explanation.
-
----
-
-# Notebook 10
-
-# Mini Project
-
-## Main Goals
-
-Participants should integrate all previous skills into a single workflow.
-
-## Required Workflow
-
-Participants should:
-
-1. Load data.
-2. Inspect data.
-3. Clean data.
-4. Filter and summarize data.
-5. Create visualizations.
-6. Interpret findings.
-7. Produce a small notebook report.
-
-## Expected Deliverable
-
-A reproducible notebook containing:
-
-* code
-* tables
-* visualizations
-* Markdown explanations
-* analytical conclusions
-
-## Learning Emphasis
-
-The notebook should resemble a practical analytical report.
-
----
-
-# Recommended Dataset Strategy
-
-The course should preferably use:
-
-* one main dataset across multiple notebooks
-
-This reduces cognitive overload because participants do not repeatedly learn new domain contexts.
-
-Good dataset characteristics:
-
-* realistic
-* medium-sized
-* understandable
-* slightly imperfect
-
-Recommended themes:
-
-* sales
-* surveys
-* education
-* libraries
-* public sector
-* transport
-* employee records
-* budgets
+- code-reading questions
+- output prediction questions
+- short interpretation prompts
+- mini tasks that produce visible tables or charts
 
 Avoid:
 
-* cryptic datasets
-* highly scientific datasets
-* advanced statistical datasets
+- formal exams
+- syntax memorization
+- long coding challenges
+- tasks that require concepts not yet demonstrated
 
----
+## Scope Boundaries
 
-# Bonus Sections for Faster Learners
+Do not include these in the core notebooks:
 
-Optional enrichment sections may include:
+- object-oriented programming
+- custom classes
+- decorators
+- APIs
+- machine learning
+- SQL
+- dashboards
+- advanced statistics
+- complex environment setup
 
-* pairplot()
-* heatmaps
-* exporting data
-* saving charts
-* Plotly examples
-* additional pivot tables
-* date extraction
-* advanced filtering
+Optional bonus sections may mention extensions, but the core learner path must remain beginner-friendly.
 
-Bonus sections should always remain optional.
+## Success Criteria
 
-Core learners should never feel punished for not completing bonus material.
+By the end of the two main workbooks, learners should be able to:
 
----
-
-# Scope Control
-
-The course intentionally excludes:
-
-* advanced Python programming
-* object-oriented programming
-* machine learning
-* dashboard frameworks
-* APIs
-* SQL
-* software engineering architecture
-* advanced statistics
-
-The focus is:
-
-> practical analytical workflows for beginners.
-
----
-
-# Final Desired Outcome
-
-By the end of the course, participants should feel:
-
-> “I can realistically use Python notebooks for practical data analysis tasks.”
-
-The course should maximize:
-
-* confidence
-* practical competence
-* reproducibility
-* analytical thinking
-
-rather than programming sophistication.
+1. Open and run a Colab notebook.
+2. Load a CSV dataset.
+3. Inspect rows, columns, data types, and missing values.
+4. Filter, sort, and select data.
+5. Clean basic missing values.
+6. Group and summarize data.
+7. Create readable charts.
+8. Interpret tables and charts.
+9. Write short analytical conclusions.
+10. Re-run a notebook as a reproducible analysis.

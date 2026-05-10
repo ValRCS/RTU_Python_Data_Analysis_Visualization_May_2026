@@ -1,477 +1,278 @@
-# PEDAGOGY.md
+# Pedagogy
 
-# Pedagogical Guidelines for Python Data Analysis and Visualization Course
+## Teaching Philosophy
 
-This document describes the pedagogical principles, instructional design decisions, and teaching practices for the notebooks and exercises contained in this repository.
+This course teaches reproducible data analysis, not software development.
 
-The course is designed primarily for:
+Learners should leave with the feeling that Python notebooks can help them inspect, clean, summarize, visualize, and explain tabular data. They do not need to feel like programmers.
 
-* adult professionals
-* beginners in programming
-* participants with possible Excel experience
-* learners seeking practical data analysis skills rather than software engineering expertise
+Prioritize:
 
----
+- practical usefulness
+- visible progress
+- short code cells
+- repeated patterns
+- plain-language explanations
+- connections to Excel workflows
+- low-stakes practice
 
-# Core Educational Philosophy
+Avoid:
 
-The primary instructional goal is:
+- abstract programming theory
+- unnecessary jargon
+- long unexplained code blocks
+- clever syntax
+- advanced statistics
+- software engineering topics
 
-> Enable non-programmers to confidently perform reproducible data analysis workflows using Python.
+## Audience
 
-The course should prioritize:
+The primary audience is adult professionals with mixed technical backgrounds. Some may use Excel regularly. Some may be anxious about programming.
 
-* practical usefulness
-* gradual confidence-building
-* immediate visual feedback
-* reproducibility
-* low cognitive overload
-* analytical thinking
+Assume:
 
-The course should NOT prioritize:
+- little or no prior Python experience
+- possible Excel experience
+- limited confidence with code
+- preference for practical examples
+- need for instructor pacing and repetition
 
-* formal computer science theory
-* advanced programming patterns
-* software engineering architecture
-* algorithmic optimization
-* mathematical formalism
+Do not assume:
 
-Participants are not training to become programmers.
+- comfort with command lines
+- software development experience
+- knowledge of statistics beyond basic descriptive ideas
+- patience for abstract exercises without workplace relevance
 
-Participants are learning to:
+## Excel-to-Python Anchors
 
-* work with data
-* clean data
-* summarize data
-* visualize data
-* communicate insights
-* automate repetitive analytical tasks
+Use Excel comparisons to reduce cognitive load.
 
----
+| Excel concept | Python / Pandas concept |
+| --- | --- |
+| Worksheet or table | DataFrame |
+| Column | Series |
+| Filter | Boolean indexing |
+| Sort | `sort_values()` |
+| Pivot Table | `groupby()` or `pivot_table()` |
+| Formula | Python expression |
+| Chart | Matplotlib or Seaborn visualization |
+| Manual repeated steps | Reproducible notebook workflow |
 
-# Adult Learning Considerations
+The message should be:
 
-The audience consists primarily of adult learners.
+> Python can automate and document familiar analysis workflows.
 
-Adult learners often:
+Do not frame Excel as obsolete or inferior.
 
-* possess strong domain expertise
-* lack confidence in programming
-* fear making mistakes publicly
-* compare themselves negatively to technical learners
-* value immediate workplace applicability
-* prefer practical examples over abstract theory
+## Cognitive Load
 
-The materials should therefore:
+The course is short: 10 academic hours across two days.
 
-* normalize beginner mistakes
-* avoid unnecessary jargon
-* provide visible progress quickly
-* reinforce confidence repeatedly
-* connect concepts to workplace use cases
-* avoid “programmer elitism”
+Learners should work through two main full-day notebooks:
 
----
+- Day 1: Titanic data analysis
+- Day 2: Penguins visualization and storytelling
 
-# Excel-to-Python Transition Strategy
+Each day workbook has 5 subchapters. Each subchapter should introduce a small number of new ideas and give learners time to practice.
 
-Many participants may already use Excel professionally.
+Avoid combining too many new concepts at once. For example, do not introduce filtering, custom functions, complex plotting, and statistical interpretation in the same task.
 
-The course should explicitly connect Python concepts to Excel concepts.
+Better pattern:
 
-Examples:
+1. Introduce one operation.
+2. Show one visible output.
+3. Interpret that output.
+4. Let learners repeat the pattern.
+5. Add one small variation.
 
-| Excel           | Python / Pandas       |
-| --------------- | --------------------- |
-| Worksheet/Table | DataFrame             |
-| Column          | Series                |
-| Filter          | Boolean indexing      |
-| Pivot table     | groupby()             |
-| Formula         | Python expression     |
-| Chart           | Matplotlib / Seaborn  |
-| Manual workflow | Reproducible notebook |
+## Instructor Rhythm
 
-This comparison reduces intimidation and provides conceptual anchors.
+A good academic-hour rhythm is:
 
-The message should consistently be:
+| Segment | Approximate time |
+| --- | --- |
+| Short introduction or recap | 5 minutes |
+| Instructor demonstration | 10 to 15 minutes |
+| Guided practice | 10 to 15 minutes |
+| Check your understanding | 3 to 5 minutes |
+| Independent mini task | 5 to 8 minutes |
+| Reflection or interpretation | 2 to 4 minutes |
 
-> Python extends and automates familiar analytical workflows.
+This rhythm should guide the notebooks, but it does not need to be mechanical. Use the flow that best helps learners.
 
-NOT:
-
-> Excel is obsolete or inferior.
-
----
-
-# Cognitive Load Management
-
-The course duration is short:
-
-* 10 academic hours
-* two consecutive days
-
-The instructional materials must therefore aggressively manage cognitive load.
-
-The notebooks should:
-
-* introduce concepts gradually
-* use short code cells
-* avoid long unexplained examples
-* separate new concepts clearly
-* repeat key workflows multiple times
-* emphasize pattern recognition
-
-Avoid introducing multiple new concepts simultaneously.
-
-Bad example:
-
-* introducing loops
-* functions
-* lambda expressions
-* plotting
-* filtering
-
-all within the same exercise.
-
-Good example:
-
-* one new operation
-* one visible output
-* one practical interpretation
-
----
-
-# Recommended Instructional Rhythm
-
-Each academic hour should approximately follow:
-
-| Segment                  | Approximate Time |
-| ------------------------ | ---------------- |
-| Introduction & recap     | 5 min            |
-| Instructor demonstration | 10–15 min        |
-| Guided practice          | 10–15 min        |
-| Assessment questions     | 3–5 min          |
-| Independent mini task    | 5–8 min          |
-| Reflection               | 2–4 min          |
-
-This predictable rhythm helps reduce learner anxiety.
-
----
-
-# Notebook Structure
-
-Every notebook should consistently include:
-
-```markdown
-# Lesson Title
-
-## Learning Outcomes
-
-## Introduction
-
-## Instructor Demonstration
-
-## Guided Practice
-
-## Check Your Understanding
-
-## Independent Mini Task
-
-## Common Mistakes
-
-## Reflection
-
-## Optional Bonus Tasks
-```
-
-Consistency across notebooks is pedagogically important.
-
-Participants should quickly recognize:
-
-* when they are observing
-* when they are practicing
-* when they are independently applying
-* when they are reflecting
-
----
-
-# Instructor Demonstrations
+## Instructor Demonstrations
 
 Instructor demonstrations should:
 
-* proceed slowly
-* explain reasoning aloud
-* include mistakes and debugging occasionally
-* emphasize analytical thinking
-* avoid excessive typing speed
+- move slowly
+- explain the purpose before the syntax
+- show output immediately
+- pause after important cells
+- occasionally normalize common mistakes
+- connect code to analytical reasoning
 
-Important:
+Beginners often cannot listen, read code, type, and interpret output at the same time. Demonstrations should leave space for thinking.
 
-Beginners often cannot simultaneously:
+## Guided Practice
 
-* listen
-* read code
-* understand syntax
-* understand concepts
-* type
+Guided practice should closely follow the demonstrated pattern.
 
-Therefore demonstrations should include pauses and repetition.
-
----
-
-# Guided Practice
-
-Guided practice should:
-
-* immediately follow demonstrations
-* use nearly identical patterns
-* slightly modify the demonstrated example
-* reinforce muscle memory
-
-Examples:
+Example:
 
 After demonstrating:
 
 ```python
-df[df["age"] > 30]
+titanic[titanic["Age"] >= 18]
 ```
 
-guided practice might ask learners to:
+guided practice might ask learners to filter:
 
 ```python
-df[df["salary"] > 2000]
+titanic[titanic["Fare"] > 50]
 ```
 
-Do not radically change datasets or task structure immediately.
+Do not radically change the dataset, syntax, and analytical question all at once.
 
----
+## Checks for Understanding
 
-# Check Your Understanding Sections
+Checks should be low-stakes and short.
 
-These sections serve as low-stakes formative assessment.
+Good question types:
 
-Purpose:
-
-* verify comprehension
-* identify confusion early
-* encourage active thinking
-* reduce passive observation
-
-Questions should:
-
-* be short
-* emphasize conceptual understanding
-* include code-reading
-* include output prediction
-
-Good examples:
-
-* What will this code output?
-* Why does this filtering operation work?
-* Which chart type is appropriate here?
-* What does this aggregation mean?
+- Predict the output before running the code.
+- Identify which column is being used.
+- Explain what the grouped result means.
+- Choose which chart type fits a question.
+- Describe one pattern in a chart.
 
 Avoid:
 
-* memorization-heavy questions
-* syntax trivia
-* complex coding exercises
+- formal exam tone
+- memorization-heavy syntax questions
+- long debugging tasks
+- questions requiring concepts not yet taught
 
----
+## Independent Mini Tasks
 
-# Independent Mini Tasks
+Mini tasks should take about 5 to 8 minutes.
 
-Mini tasks are critical.
+Good mini tasks:
 
-Purpose:
+- filter a different subset
+- create a count table
+- summarize one column by one category
+- make one chart
+- write one or two observations
 
-* transition from imitation to independent action
-* reinforce confidence
-* create small wins
+Mini tasks should produce visible output. They should reinforce recent concepts rather than introduce major new ones.
 
-Mini tasks should:
-
-* be realistic
-* be short
-* use already demonstrated concepts
-* produce visible output
-
-Target completion time:
-
-* approximately 5–8 minutes
-
-Mini tasks should NOT:
-
-* introduce major new ideas
-* require advanced debugging
-* create frustration spirals
-
----
-
-# Reflection Sections
-
-Reflection is especially important for adult learners.
-
-Reflection helps participants:
-
-* consolidate understanding
-* connect concepts to workplace contexts
-* evaluate their own learning
-* identify remaining confusion
-
-Reflection questions should include:
-
-* conceptual reflection
-* workplace application
-* comparison to prior workflows
-* self-assessment
-
-Examples:
-
-* Which operation felt most intuitive today?
-* Which concept still feels unclear?
-* How could this workflow help in your work?
-* How does this compare to Excel?
-
----
-
-# Common Mistakes Sections
-
-Every notebook should contain:
-
-```markdown
 ## Common Mistakes
-```
 
-These sections are pedagogically essential.
+Common mistakes sections are pedagogically important. They normalize errors and reduce anxiety.
 
-They normalize beginner errors and reduce anxiety.
+Useful examples:
 
-Examples:
+- forgetting quotation marks around column names
+- misspelling column names
+- using `=` instead of `==`
+- running cells out of order
+- treating missing values as zero
+- forgetting parentheses when combining filters
+- creating a chart before checking data quality
 
-* Forgetting quotation marks
-* Using = instead of ==
-* Running notebook cells out of order
-* Misspelling column names
-* Forgetting parentheses in filtering conditions
+The tone should be practical:
 
-The implicit message should be:
+> This error is common. Here is how to notice and fix it.
 
-> These mistakes are normal and expected.
-
----
-
-# Visualization Pedagogy
+## Visualization Pedagogy
 
 Visualization should be taught as communication, not decoration.
 
-Participants should learn:
+Learners should understand:
 
-* when to use each chart type
-* how to avoid misleading charts
-* how to emphasize readability
-* how to communicate insight
+- when to use a chart type
+- why a chart type fits a question
+- how to make charts readable
+- how to interpret a chart without overclaiming
 
 Core chart types:
 
-* line chart
-* bar chart
-* scatter plot
-* histogram
-* box plot
+- bar chart
+- histogram
+- box plot
+- scatter plot
+- line chart for the bonus Gapminder notebook
 
-Participants should repeatedly practice:
+Every core chart should include a title, axis labels, readable sizing, and interpretation.
 
-* adding titles
-* adding axis labels
-* interpreting findings
-* identifying patterns
+## Data Storytelling
 
----
+Data storytelling means connecting output to meaning.
 
-# Data Storytelling
+Encourage learners to write:
 
-Participants should learn that:
-
-* charts alone are not analysis
-* interpretation matters
-* analytical communication matters
+- observation: what the table or chart shows
+- interpretation: what that might mean
+- caution: what the data cannot prove
+- possible next question
 
 Weak title:
 
-```markdown
-Sales by Region
+```text
+Body Mass by Species
 ```
 
 Better title:
 
-```markdown
-Riga Region Generated the Highest Total Sales
+```text
+Gentoo Penguins Have the Highest Average Body Mass
 ```
 
-Encourage participants to include:
+## Emotional Design
 
-* observation
-* explanation
-* recommendation
+The course should build confidence.
 
----
+Useful signals:
 
-# Scope Management
+- "This is similar to Excel filtering."
+- "This mistake is common."
+- "Run the cell and inspect the output."
+- "We are documenting the analysis so it can be repeated."
 
-The course intentionally excludes many advanced topics.
+Avoid signals that make the course feel like a programming gatekeeping exercise.
 
-Avoid in core materials:
+## Scope Control
 
-* object-oriented programming
-* advanced functions
-* decorators
-* APIs
-* machine learning
-* advanced statistics
-* dashboard frameworks
-* SQL integration
-* software engineering architecture
-* complex environment management
+Do not include these in the core path:
 
-The primary objective is breadth of practical workflow, not depth of programming theory.
+- classes
+- decorators
+- recursion
+- APIs
+- SQL
+- machine learning
+- dashboards
+- command-line workflows
+- complex environment management
+- advanced statistical modeling
 
----
+Optional bonus tasks may extend the material, but they should never be required for core success.
 
-# Success Criteria
+## Success Criteria
 
-By the end of the course, participants should be able to:
+By the end of the two main workbooks, learners should be able to:
 
-1. Load tabular datasets.
-2. Inspect and understand datasets.
-3. Clean basic data quality issues.
-4. Filter and group data.
-5. Compute descriptive statistics.
-6. Create readable visualizations.
-7. Interpret findings.
-8. Produce a simple reproducible notebook report.
+1. Run a Colab notebook.
+2. Load a CSV dataset.
+3. Inspect rows, columns, data types, and missing values.
+4. Filter and sort data.
+5. Clean basic missing values.
+6. Group and summarize data.
+7. Create readable charts.
+8. Interpret outputs in plain language.
+9. Write a short reproducible analysis.
 
-Success should be measured primarily by:
+The desired final feeling is:
 
-* confidence
-* reproducibility
-* analytical reasoning
-* practical applicability
-
-not by programming sophistication.
-
----
-
-# Desired Emotional Outcome
-
-An important hidden objective of the course is:
-
-Participants should leave feeling:
-
-> “I can realistically use Python for practical data analysis.”
-
-They should NOT leave feeling:
-
-> “Programming is only for experts.”
-
-This emotional outcome strongly influences long-term adoption and continued learning.
+> I can realistically use Python notebooks for practical data analysis.

@@ -1,118 +1,76 @@
-# NOTEBOOK_TEMPLATE.md
+# Notebook Template
 
-# Standard Notebook Template
+## Purpose
 
-This document defines the standard structure and formatting conventions for all notebooks in this repository.
+This document defines the standard structure for the course workbooks.
 
-The purpose of the template is to ensure:
+The course uses full-day notebooks rather than many small lesson notebooks. Each main notebook should be a self-contained Google Colab workbook with 5 subchapters.
 
-* pedagogical consistency
-* beginner readability
-* predictable notebook organization
-* reduced cognitive load
-* reproducible analytical workflows
+Primary notebooks:
 
-All notebooks should follow this structure as closely as practical.
+- `01_day1_titanic_data_analysis.ipynb`
+- `02_day2_penguins_visualization_storytelling.ipynb`
+- optional `03_bonus_gapminder_visual_analysis.ipynb`
 
----
+## Workbook-Level Structure
 
-# General Notebook Principles
-
-Every notebook should:
-
-* run successfully from top to bottom using "Run All"
-* contain explanatory Markdown between code cells
-* avoid large unexplained code blocks
-* prioritize readability over compactness
-* contain visible outputs
-* reinforce confidence for beginners
-* include reflection and interpretation
-
-The notebooks should resemble:
-
-* guided workshops
-* practical analytical workbooks
-* reproducible tutorials
-
-The notebooks should NOT resemble:
-
-* formal programming textbooks
-* computer science theory notes
-* algorithm-heavy exercises
-
----
-
-# Standard Notebook Structure
-
-Each notebook should follow the structure below.
+Each main workbook should follow this high-level structure:
 
 ```markdown
-# Notebook Title
+# Workbook Title
 
 ## Learning Outcomes
 
-## Introduction
+## How to Use This Workbook
 
-## Environment Setup
+## Setup
 
-## Instructor Demonstration
+## Subchapter 1: ...
 
-## Guided Practice
+## Subchapter 2: ...
 
-## Check Your Understanding
+## Subchapter 3: ...
 
-## Independent Mini Task
+## Subchapter 4: ...
 
-## Common Mistakes
+## Subchapter 5: ...
+
+## End-of-Day Mini Report
+
+## Common Mistakes and Troubleshooting
 
 ## Reflection
 
 ## Optional Bonus Tasks
-
-## Summary
 ```
 
----
+The exact subchapter titles should match the dataset and day goal.
 
-# Notebook Header Template
+## Required Subchapter Pattern
 
-Each notebook should begin with a clear introductory Markdown section.
-
-Example:
+Each subchapter should normally contain:
 
 ```markdown
-# Introduction to Filtering and Sorting Data
+### Goal
 
-## Learning Outcomes
+### Instructor Demonstration
 
-By the end of this notebook, you should be able to:
+### Guided Practice
 
-- select columns from a DataFrame
-- filter rows using conditions
-- sort data
-- count category occurrences
-- interpret filtered results
+### Check Your Understanding
 
-## Introduction
+### Independent Mini Task
 
-In this notebook, we will learn how to filter and sort data using Pandas.
-
-These operations are conceptually similar to filtering and sorting in Excel, but they are reproducible and automated through code.
+### Interpretation
 ```
 
-The introduction should:
+This pattern may be adapted when it improves flow, but every subchapter should include explanation, code, visible output, and learner activity.
 
-* explain WHY the topic matters
-* connect to practical analytical workflows
-* connect to Excel where appropriate
+## Setup Section
 
----
+Every workbook must include a simple setup section near the beginning.
 
-# Environment Setup Section
-
-Every notebook should contain a setup section near the beginning.
-
-Example:
+Use only the libraries needed for that workbook:
 
 ```python
 import pandas as pd
@@ -120,430 +78,250 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 ```
 
-If datasets are loaded:
+Use stable visual defaults when helpful:
 
 ```python
-df = pd.read_csv("../data/example_dataset.csv")
+sns.set_theme(style="whitegrid")
 ```
 
-Setup sections should:
+Avoid unnecessary installation cells. Colab already includes the core libraries used in this course.
 
-* remain minimal
-* avoid unnecessary imports
-* avoid complex configuration
+## Colab-Safe Data Loading
 
----
+Notebook data loading must work in Google Colab as-is.
 
-# Markdown-to-Code Ratio
+Preferred pattern:
 
-The notebooks should contain substantial Markdown explanation.
+```python
+from pathlib import Path
 
-Recommended balance:
+local_path = Path("../data/titanic.csv")
+remote_url = "https://raw.githubusercontent.com/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/main/data/titanic.csv"
 
-* approximately 40–60% Markdown
-* approximately 40–60% code
+if local_path.exists():
+    df = pd.read_csv(local_path)
+else:
+    df = pd.read_csv(remote_url)
 
-Large uninterrupted blocks of code should generally be avoided.
+df.head()
+```
 
-Code should be separated by explanatory text.
+Use the correct dataset variable names:
 
----
+- Day 1: `titanic` or `df`
+- Day 2: `penguins`
+- Bonus: `gapminder`
 
-# Code Cell Design Principles
+If the final notebooks are intended to be opened directly from GitHub in Colab, replace the placeholder remote URL with the actual raw CSV URL.
+
+## Markdown Style
+
+Markdown should:
+
+- explain why each step matters
+- connect to Excel where useful
+- prepare learners for the next code cell
+- interpret important outputs
+- use plain language
+
+Avoid long theory sections. Short explanations followed by visible output are better for beginners.
+
+Good style:
+
+```markdown
+Before creating charts, we need to understand what columns are available.
+This is similar to checking the header row and data types in Excel.
+```
+
+Weak style:
+
+```markdown
+Pandas is a high-performance data manipulation library built on top of optimized array structures.
+```
+
+## Code Cell Style
 
 Code cells should:
 
-* demonstrate one concept at a time
-* remain short where practical
-* produce visible outputs
-* avoid unnecessary abstraction
+- be short
+- do one main thing at a time
+- produce visible output when practical
+- avoid clever one-line chains
+- use descriptive variable names
 
-Preferred style:
-
-```python
-df.head()
-```
-
-Preferred over:
+Prefer:
 
 ```python
-print(df.head())
+adult_passengers = titanic[titanic["Age"] >= 18]
+adult_passengers.head()
 ```
-
-unless printing is explicitly being taught.
 
 Avoid:
 
-* deeply nested expressions
-* advanced Python syntax
-* excessive chaining
-* one-line “clever” solutions
-
----
-
-# Commenting Style
-
-Code comments should explain reasoning rather than restating syntax.
-
-Good example:
-
 ```python
-# Filter rows where sales exceed 1000 EUR
-high_sales = df[df["sales"] > 1000]
+titanic[titanic.Age.ge(18)].sort_values("Fare", ascending=False).head(17).style.background_gradient()
 ```
 
-Weak example:
+## Visible Output Requirement
 
-```python
-# Create variable
-high_sales = df[df["sales"] > 1000]
-```
+Most code cells should show something:
 
-Comments should:
+- table preview
+- summary table
+- count result
+- chart
+- missing value report
+- written interpretation after output
 
-* clarify intention
-* explain analytical purpose
-* support beginners
+Avoid long stretches of hidden processing.
 
----
+## Chart Standards
 
-# Instructor Demonstration Sections
+All core charts should include:
 
-These sections should:
+- clear title
+- x-axis label
+- y-axis label
+- readable figure size
+- legend when it helps interpretation
 
-* introduce one major idea at a time
-* include explanatory Markdown
-* include visible outputs
-* proceed gradually
-
-Example structure:
-
-```markdown
-## Instructor Demonstration
-
-Let us first inspect the structure of the dataset.
-```
-
-```python
-df.head()
-```
-
-```markdown
-The output shows the first five rows of the dataset.
-This helps us understand:
-- available columns
-- data types
-- possible missing values
-```
-
----
-
-# Guided Practice Sections
-
-Guided practice should:
-
-* closely follow demonstrated examples
-* slightly modify demonstrated operations
-* reinforce procedural confidence
-
-Example:
-
-```markdown
-## Guided Practice
-
-Try filtering rows where the salary is greater than 2000.
-```
-
-```python
-df[df["salary"] > 2000]
-```
-
-Guided practice should avoid introducing major new concepts.
-
----
-
-# Check Your Understanding Sections
-
-Every notebook should contain low-stakes formative assessment.
-
-Purpose:
-
-* verify understanding
-* encourage active thinking
-* reduce passive observation
-
-Example:
-
-````markdown
-## Check Your Understanding
-
-1. What does the following code return?
-
-```python
-df[df["age"] > 30]
-````
-
-2. Why are parentheses needed when combining conditions?
-
-3. Which operation is conceptually similar to Excel filtering?
-
-````
-
-These questions should:
-
-- remain short
-- emphasize concepts
-- include code-reading
-- include prediction exercises
-
-Avoid:
-
-- memorization-heavy questions
-- advanced debugging tasks
-
----
-
-# Independent Mini Task Sections
-
-Every notebook should contain at least one short independent task.
-
-Purpose:
-
-- reinforce confidence
-- encourage independent action
-- transition beyond imitation
-
-Mini tasks should:
-
-- be achievable within 5–8 minutes
-- use previously demonstrated concepts
-- produce visible results
-
-Example:
-
-```markdown
-## Independent Mini Task
-
-Using the dataset:
-
-- filter rows where sales exceed 1000
-- sort results by sales descending
-- identify the top 5 entries
-
-Write 2–3 sentences describing your observations.
-````
-
-Mini tasks should avoid introducing major new ideas.
-
----
-
-# Common Mistakes Sections
-
-Every notebook should contain:
-
-```markdown
-## Common Mistakes
-```
-
-Purpose:
-
-* normalize beginner mistakes
-* reduce anxiety
-* improve debugging confidence
-
-Example:
-
-```markdown
-## Common Mistakes
-
-- Forgetting quotation marks around column names
-- Using = instead of ==
-- Misspelling column names
-- Forgetting parentheses in filtering conditions
-- Running notebook cells out of order
-```
-
-These sections are pedagogically important.
-
----
-
-# Reflection Sections
-
-Every notebook should contain reflection questions.
-
-Purpose:
-
-* consolidate learning
-* encourage metacognition
-* connect concepts to workplace usage
-
-Example:
-
-```markdown
-## Reflection
-
-1. Which operation felt most intuitive today?
-2. Which concept still feels confusing?
-3. How does this compare to Excel workflows?
-4. Where could you apply this workflow in your work?
-```
-
-Reflection questions should:
-
-* encourage self-assessment
-* encourage practical thinking
-* reinforce analytical reasoning
-
----
-
-# Optional Bonus Tasks Sections
-
-Bonus tasks should:
-
-* remain optional
-* support faster learners
-* avoid penalizing core learners
-
-Example:
-
-```markdown
-## Optional Bonus Tasks
-
-- Create an additional visualization.
-- Export grouped results to Excel.
-- Add a custom chart title and annotations.
-- Experiment with additional filtering conditions.
-```
-
-Bonus sections should be clearly labeled as optional.
-
----
-
-# Visualization Notebook Guidelines
-
-Visualization notebooks should:
-
-* explain WHEN to use chart types
-* explain WHY to use chart types
-* emphasize readability
-* emphasize interpretation
-
-All visualizations should include:
-
-* title
-* axis labels
-* readable formatting
-
-Preferred example:
+Recommended Matplotlib/Seaborn pattern:
 
 ```python
 plt.figure(figsize=(8, 5))
 
-sns.barplot(data=df, x="region", y="sales")
+sns.barplot(data=summary, x="species", y="body_mass_g")
 
-plt.title("Total Sales by Region")
-plt.xlabel("Region")
-plt.ylabel("Sales")
-
+plt.title("Gentoo Penguins Have the Highest Average Body Mass")
+plt.xlabel("Species")
+plt.ylabel("Average body mass (g)")
 plt.show()
 ```
 
-Visualization notebooks should also include interpretation.
+Chart titles should increasingly move from descriptive to insight-oriented.
 
-Example:
+Weak:
 
-```markdown
-The chart shows that Riga has the highest sales values among all regions.
-This may suggest higher customer concentration or stronger business activity.
+```text
+Body Mass by Species
 ```
 
----
+Better:
 
-# Data Storytelling Guidelines
-
-Participants should repeatedly practice:
-
-* observation
-* interpretation
-* explanation
-* recommendation
-
-Weak title:
-
-```markdown
-Sales by Region
+```text
+Gentoo Penguins Have the Highest Average Body Mass
 ```
 
-Better title:
+## Check Your Understanding
 
-```markdown
-Riga Region Generated the Highest Total Sales
-```
+Each subchapter should include 2 to 4 low-stakes questions.
 
-Charts should communicate insight, not merely display numbers.
+Use questions such as:
 
----
+- What do you expect this code to output?
+- Which column is being filtered?
+- Why is this chart type appropriate?
+- What pattern do you notice?
+- How would this compare to an Excel workflow?
 
-# Output Expectations
+Avoid formal quiz style and memorization-heavy questions.
 
-Most code cells should generate visible output.
+## Independent Mini Tasks
 
-Preferred outputs:
+Each subchapter should include a mini task that takes about 5 to 8 minutes.
 
-* tables
-* summaries
-* charts
-* counts
-* descriptive statistics
+Good mini tasks:
 
-Avoid notebooks that contain long stretches of code without output.
+- repeat a demonstrated pattern with a different column
+- filter a small subset
+- create a simple grouped summary
+- make one chart and write one observation
 
----
+Mini tasks should not introduce major new syntax.
 
-# Notebook Length Guidelines
+## Common Mistakes
 
-Recommended notebook size:
+Each workbook must include a common mistakes section. Individual subchapters may also include short mistake notes.
 
-* approximately 30–80 cells
-* depending on topic complexity
+Useful examples:
 
-Avoid:
+- misspelling column names
+- forgetting quotation marks around column names
+- using `=` instead of `==`
+- forgetting parentheses when combining filters
+- running cells out of order
+- interpreting missing values as zero
+- creating charts before checking data quality
 
-* extremely short notebooks lacking explanation
-* excessively long notebooks causing fatigue
+The tone should normalize beginner mistakes.
 
-The pacing should support beginner learners.
+## Reflection
 
----
+Each workbook should end with reflection prompts.
 
-# Scope Control
+Use questions such as:
 
-Avoid including advanced topics in standard notebooks:
+- Which operation felt most familiar from Excel?
+- Which step still feels confusing?
+- What part of this workflow could help in your work?
+- What would you want to practice again?
+- What did the data suggest, and what can it not prove?
 
-* object-oriented programming
-* advanced functions
-* decorators
-* APIs
-* machine learning
-* advanced statistics
-* dashboard frameworks
-* complex environment management
+## End-of-Day Mini Report
 
-The primary objective is:
+Each main workbook should end with a small reproducible report.
 
-> practical reproducible data analysis workflows for beginners.
+Day 1 report should include:
 
----
+- one cleaned or prepared Titanic dataset decision
+- two or more summary tables
+- optional simple chart
+- 3 to 5 short written conclusions
 
-# Final Notebook Goal
+Day 2 report should include:
 
-Every notebook should leave participants feeling:
+- 2 to 3 readable Penguins charts
+- short interpretation after each chart
+- 3 to 5 written findings
+- at least one caution about overinterpreting charts
 
-* capable
-* confident
-* successful
-* practically empowered
+## Optional Bonus Tasks
 
-The notebooks should consistently reinforce:
+Bonus tasks should be clearly optional and should not be required for the main learner path.
 
-> Python can be used as a practical, understandable, reproducible analytical tool.
+Good bonus tasks:
+
+- customize chart colors
+- save a chart
+- create one extra grouped summary
+- compare another pair of variables
+- try a Gapminder line chart
+
+Avoid bonus tasks that require advanced programming.
+
+## Notebook Length
+
+For each main day workbook, aim for approximately:
+
+- 5 subchapters
+- 60 to 120 cells total
+- 40 to 60 percent Markdown
+- 40 to 60 percent code
+
+The workbook should be long enough to support instructor-led teaching, but not so dense that learners cannot follow while coding along.
+
+## Final Quality Checklist
+
+Before considering a workbook ready:
+
+- It runs top-to-bottom in Google Colab.
+- It has no local-only data dependency.
+- It uses beginner-readable code.
+- It contains visible outputs.
+- It includes guided practice and mini tasks.
+- It includes checks for understanding.
+- It includes common mistakes.
+- It includes reflection.
+- It ends with a small analytical synthesis.
+- Charts have titles and labels.
+- The notebook avoids advanced software engineering topics.
