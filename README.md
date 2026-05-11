@@ -18,8 +18,9 @@ Open the notebooks directly in Google Colab:
 | `notebooks/day_1/01_python_jupyter_notebook_basics_lv.ipynb` | Latvian version of the Day 1 starter notebook | [![Open Latvian Starter in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_python_jupyter_notebook_basics_lv.ipynb) |
 | `notebooks/day_1/01_day1_titanic_data_analysis.ipynb` | Main Day 1 workbook: Titanic data analysis with Pandas | [![Open Day 1 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_day1_titanic_data_analysis.ipynb) |
 | `notebooks/day_2/02_day2_penguins_visualization_storytelling.ipynb` | Main Day 2 workbook: Penguins visualization and storytelling | [![Open Day 2 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_2/02_day2_penguins_visualization_storytelling.ipynb) |
+| `notebooks/day_2/03_bonus_gapminder_visual_analysis.ipynb` | Optional Day 2 bonus workbook: Gapminder visual analysis with Matplotlib, Seaborn, and Plotly | [![Open Bonus in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_2/03_bonus_gapminder_visual_analysis.ipynb) |
 
-The optional Gapminder bonus workbook is planned but not yet included as a notebook file.
+The optional Gapminder bonus workbook extends Day 2 with historical public-data trends, chart-choice justification, and a short visual mini report.
 
 Each main workbook should contain 5 subchapters and run in Google Colab as-is. The Day 1 starter notebooks are shorter onboarding notebooks intended for the first 1 to 2 academic hours.
 
