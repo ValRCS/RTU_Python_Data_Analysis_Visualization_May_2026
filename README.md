@@ -8,15 +8,20 @@ Learners should be able to load tabular data, inspect and clean it, summarize it
 
 The course is designed for learners with little or no programming experience. Excel comparisons are encouraged throughout.
 
-## Planned Workbooks
+## Course Workbooks
 
-The repository is being organized around full-day workbooks:
+Open the notebooks directly in Google Colab:
 
-- [![Open Day 1 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_day1_titanic_data_analysis.ipynb) `notebooks/day_1/01_day1_titanic_data_analysis.ipynb`
-- `notebooks/02_day2_penguins_visualization_storytelling.ipynb`
-- optional `notebooks/03_bonus_gapminder_visual_analysis.ipynb`
+| Notebook | Purpose | Open in Colab |
+| --- | --- | --- |
+| `notebooks/day_1/01_python_jupyter_notebook_basics.ipynb` | Day 1 starter notebook: Python, Jupyter, Colab, Markdown, DataFrames, and basic Python concepts | [![Open Starter in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_python_jupyter_notebook_basics.ipynb) |
+| `notebooks/day_1/01_python_jupyter_notebook_basics_lv.ipynb` | Latvian version of the Day 1 starter notebook | [![Open Latvian Starter in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_python_jupyter_notebook_basics_lv.ipynb) |
+| `notebooks/day_1/01_day1_titanic_data_analysis.ipynb` | Main Day 1 workbook: Titanic data analysis with Pandas | [![Open Day 1 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_1/01_day1_titanic_data_analysis.ipynb) |
+| `notebooks/day_2/02_day2_penguins_visualization_storytelling.ipynb` | Main Day 2 workbook: Penguins visualization and storytelling | [![Open Day 2 in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/notebooks/day_2/02_day2_penguins_visualization_storytelling.ipynb) |
 
-Each main workbook should contain 5 subchapters and run in Google Colab as-is.
+The optional Gapminder bonus workbook is planned but not yet included as a notebook file.
+
+Each main workbook should contain 5 subchapters and run in Google Colab as-is. The Day 1 starter notebooks are shorter onboarding notebooks intended for the first 1 to 2 academic hours.
 
 ## Datasets
 
