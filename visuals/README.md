@@ -8,7 +8,7 @@ Attēls: Šarls Žozefs Minārs, 1869, Napoleona 1812. gada Krievijas kampaņas 
 
 ## Mācību mērķi
 
-Temata beigās studentiem jāspēj:
+Temata beigās jums jāspēj:
 
 - izskaidrot, kāpēc vizualizācijas ir bijušas svarīgas zinātnē, sabiedriskajā politikā, žurnālistikā un statistikā;
 - atpazīt vairākus vēsturiskus datu vizualizācijas atskaites punktus;
@@ -223,16 +223,6 @@ NLP un tematu modelēšanas papildu vizualizācijām:
 ```bash
 pip install wordcloud pyLDAvis
 ```
-
-## Ieteicamā temata struktūra
-
-1. Sāciet ar vēsturiskajiem piemēriem: Pleifērs, Snovs, Naitingeila, Minārs, Dibuā, Bertēns, Tafti, Klīvlends un Makgils.
-2. Pārrunājiet, uz kādu jautājumu katra vizualizācija atbildēja un kādu darbību vai argumentu tā atbalstīja.
-3. Praktizējiet mērķa teikuma rakstīšanu pirms diagrammas veidošanas.
-4. Pieskaņojiet uzdevumus diagrammu tipiem, izmantojot diagrammu izvēles tabulu.
-5. Pārveidojiet pārslogotu diagrammu, uzlabojot marķējumu, mērogu, krāsu un fokusu.
-6. Salīdziniet Matplotlib, Seaborn un Plotly ar vienu un to pašu vienkāršo DataFrame.
-7. Izveidojiet vai uzlabojiet vienu vizualizāciju Python vidē un izskaidrojiet dizaina izvēles.
 
 ## Atsauces
 

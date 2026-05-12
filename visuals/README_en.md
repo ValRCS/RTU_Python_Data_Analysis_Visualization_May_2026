@@ -8,7 +8,7 @@ Image: Charles Joseph Minard, 1869, graphic of Napoleon's 1812 Russian campaign.
 
 ## Learning goals
 
-By the end of this topic, students should be able to:
+By the end of this topic, you should be able to:
 
 - Explain why visualizations have been important in science, public policy, journalism, and statistics.
 - Recognize several historical milestones in data visualization.
@@ -223,16 +223,6 @@ For optional NLP and topic-modeling visualization:
 ```bash
 pip install wordcloud pyLDAvis
 ```
-
-## Suggested topic flow
-
-1. Start with the historical examples: Playfair, Snow, Nightingale, Minard, Du Bois, Bertin, Tufte, Cleveland and McGill.
-2. Discuss what question each visualization answered and what action or argument it supported.
-3. Practice writing a goal sentence before plotting.
-4. Match tasks to chart types using the chart-selection table.
-5. Redesign a cluttered chart by improving labels, scale, color, and focus.
-6. Compare Matplotlib, Seaborn, and Plotly for the same simple DataFrame.
-7. Build or improve one visualization in Python and explain the design choices.
 
 ## References
 
