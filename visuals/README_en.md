@@ -2,6 +2,10 @@
 
 Data visualization is not decoration. It is a way to reason with data, expose patterns, and communicate evidence. The most important habit is to define the goal first: what should the audience understand, compare, question, or decide after seeing the visualization?
 
+![Charles Joseph Minard's graphic of Napoleon's 1812 march to Moscow and retreat](../img/charles-joseph-minard-napoleon-1812-march.png)
+
+Image: Charles Joseph Minard, 1869, graphic of Napoleon's 1812 Russian campaign. Image file in this repository: [`img/charles-joseph-minard-napoleon-1812-march.png`](../img/charles-joseph-minard-napoleon-1812-march.png). Source: [Wikimedia Commons, public domain](https://commons.wikimedia.org/wiki/File:Minard.png).
+
 ## Learning goals
 
 By the end of this topic, students should be able to:

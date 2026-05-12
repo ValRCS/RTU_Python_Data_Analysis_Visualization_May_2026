@@ -2,6 +2,10 @@
 
 Datu vizualizācija nav noformējums. Tā ir metode, kā spriest par datiem, atklāt likumsakarības un komunicēt pierādījumus. Svarīgākais ieradums ir vispirms definēt mērķi: kas auditorijai pēc vizualizācijas apskates ir jāsaprot, jāsalīdzina, jāapšauba vai jāizlemj?
 
+![Šarla Žozefa Mināra Napoleona 1812. gada gājiena uz Maskavu un atkāpšanās grafiskais attēlojums](../img/charles-joseph-minard-napoleon-1812-march.png)
+
+Attēls: Šarls Žozefs Minārs, 1869, Napoleona 1812. gada Krievijas kampaņas grafiskais attēlojums. Attēla fails šajā repozitorijā: [`img/charles-joseph-minard-napoleon-1812-march.png`](../img/charles-joseph-minard-napoleon-1812-march.png). Avots: [Wikimedia Commons, public domain](https://commons.wikimedia.org/wiki/File:Minard.png).
+
 ## Mācību mērķi
 
 Temata beigās studentiem jāspēj:
