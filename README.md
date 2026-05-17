@@ -6,6 +6,8 @@ Kurss ir paredzēts cilvēkiem ar nelielu programmēšanas pieredzi vai bez tās
 
 Angļu versija: [README_en.md](README_en.md)
 
+![Kursa baneris](img/main_banner_1a.png)
+
 ## Termini
 
 Daži kursā lietotie termini bieži tiek lietoti arī angliski:

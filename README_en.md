@@ -6,6 +6,8 @@ The course is designed for people with little or no programming experience. Exce
 
 Latvian version: [README.md](README.md)
 
+![Course banner](img/main_banner_1a.png)
+
 ## Start Here
 
 If this is your first visit:
