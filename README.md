@@ -24,7 +24,7 @@ Daži kursā lietotie termini bieži tiek lietoti arī angliski:
 
 Ja šī ir jūsu pirmā vizīte:
 
-1. Atveriet 1. dienas ievada piezīmju grāmatu Google Colab (skat saiti pāris sadaļas zemāk)
+1. Atveriet 1. dienas ievada piezīmju grāmatu Google Colab - skat [saiti](https://github.com/ValRCS/RTU_Python_Data_Analysis_Visualization_May_2026/blob/main/README.md#kuru-piez%C4%ABmju-gr%C4%81matu-atv%C4%93rt) pāris sadaļas zemāk 
 2. Pierakstieties ar Google kontu, ja Colab to prasa.
 3. Nodarbības laikā palaidiet šūnas pa vienai un pēc katra soļa apskatiet rezultātu.
 4. Komandu **Runtime > Run all** izmantojiet vēlāk, kad vēlaties pārbaudīt, vai visa piezīmju grāmata darbojas no sākuma līdz beigām.
